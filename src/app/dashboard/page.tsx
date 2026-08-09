@@ -7,6 +7,7 @@ import { TurnoverChart } from "@/components/dashboard/turnover-chart";
 import { DepartmentTable } from "@/components/dashboard/department-table";
 import { AtRiskList } from "@/components/dashboard/at-risk-list";
 import { AIInsights } from "@/components/dashboard/ai-insights";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { useAuth } from "@/lib/auth-context";
 import { apiGetEmployees, apiGetInsights, Employee as ApiEmployee, Insight as ApiInsight } from "@/lib/api";
 import {
@@ -47,6 +48,14 @@ function filterByDateRange<T extends { hireDate: string }>(employees: T[], range
 }
 
 export default function DashboardPage() {
+  return (
+    <ErrorBoundary>
+      <DashboardContent />
+    </ErrorBoundary>
+  );
+}
+
+function DashboardContent() {
   const { user, token } = useAuth();
   const isPro = user?.plan === "pro";
 
@@ -77,7 +86,7 @@ export default function DashboardPage() {
         setEmployees(empRes.data.employees as unknown as Employee[]);
       } else {
         setEmployees(getEmployees());
-        if (!showRefresh) setError("Could not load employee data. Showing demo data.");
+        if (!showRefresh) setError("Impossible de charger les données. Affichage des données de démo.");
       }
 
       if (insightRes.success) {
@@ -85,7 +94,7 @@ export default function DashboardPage() {
       }
     } catch {
       setEmployees(getEmployees());
-      setError("Backend unavailable. Showing demo data.");
+      setError("Backend indisponible. Affichage des données de démo.");
     } finally {
       setIsLoading(false);
       setIsRefreshing(false);
@@ -170,12 +179,12 @@ export default function DashboardPage() {
                 value={dateRange}
                 onChange={(e) => setDateRange(e.target.value as DateRange)}
                 className="text-xs border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 pr-7 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500"
-                aria-label="Filter by date range"
+                aria-label="Filtrer par période"
               >
-                <option value="12m">Last 12 months</option>
-                <option value="6m">Last 6 months</option>
-                <option value="3m">Last 3 months</option>
-                <option value="quarter">This quarter</option>
+                <option value="12m">12 derniers mois</option>
+                <option value="6m">6 derniers mois</option>
+                <option value="3m">3 derniers mois</option>
+                <option value="quarter">Ce trimestre</option>
               </select>
               <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-400 pointer-events-none" />
             </div>
@@ -183,16 +192,16 @@ export default function DashboardPage() {
               onClick={() => fetchData(true)}
               disabled={isRefreshing}
               className="inline-flex items-center gap-1.5 text-xs font-medium border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-3 py-2 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors disabled:opacity-50"
-              aria-label="Refresh data"
+              aria-label="Actualiser les données"
             >
               <RefreshCw className={cn("w-3.5 h-3.5", isRefreshing && "animate-spin")} />
-              Refresh
+              Actualiser
             </button>
             <Link
               href="/reports"
               className="text-xs font-medium bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition-colors"
             >
-              Generate Report
+              Générer un rapport
             </Link>
           </div>
         </div>
@@ -206,7 +215,7 @@ export default function DashboardPage() {
               onClick={() => fetchData(true)}
               className="ml-auto text-xs font-medium underline hover:no-underline"
             >
-              Retry
+              Réessayer
             </button>
           </div>
         )}
