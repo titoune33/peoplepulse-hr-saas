@@ -62,6 +62,7 @@ insightRoutes.get("/", async (c) => {
       recentHires,
     };
 
+    let insightData: unknown;
     let insightText: string;
 
     if (userPlan === "pro") {
@@ -75,10 +76,17 @@ insightRoutes.get("/", async (c) => {
       insightText = generateMockInsights(employeeSummary, insightType);
     }
 
+    // Parse le JSON stringifié en objet pour le frontend
+    try {
+      insightData = JSON.parse(insightText);
+    } catch {
+      insightData = insightText; // fallback au texte brut
+    }
+
     return c.json({
       success: true,
       data: {
-        insights: insightText,
+        insights: insightData,
         type: insightType,
         generatedAt: new Date().toISOString(),
         plan: userPlan,

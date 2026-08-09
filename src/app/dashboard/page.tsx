@@ -90,7 +90,12 @@ function DashboardContent() {
       }
 
       if (insightRes.success) {
-        setApiInsights(insightRes.data.insights);
+        // Le backend renvoie insights comme une chaîne JSON stringifiée
+        const rawInsights = insightRes.data.insights;
+        const parsedInsights = typeof rawInsights === "string"
+          ? (JSON.parse(rawInsights) as ApiInsight[])
+          : (rawInsights as unknown as ApiInsight[]);
+        setApiInsights(Array.isArray(parsedInsights) ? parsedInsights : []);
       }
     } catch {
       setEmployees(getEmployees());
