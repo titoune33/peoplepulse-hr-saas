@@ -52,3 +52,4 @@ backend/dist/
 *.db-shm
 *.db-wal
 netlify/.netlify
+.netlify
