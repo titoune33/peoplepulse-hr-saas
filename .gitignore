@@ -49,4 +49,6 @@ backend/dist/
 # misc
 *.db
 *.db-journal
+*.db-shm
+*.db-wal
 netlify/.netlify
