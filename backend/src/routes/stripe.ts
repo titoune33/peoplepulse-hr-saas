@@ -10,8 +10,8 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3001";
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
-// Test price ID for Pro plan (replace with real price ID in production)
-const PRO_PRICE_ID = "price_1TestTestTest";
+// PeoplePulse Pro — $49/month (production)
+const PRO_PRICE_ID = "price_1U2XnI2KRBaOHP9JrxddQHNZ";
 
 export const stripeRoutes = new Hono();
 
