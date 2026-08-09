@@ -4,12 +4,12 @@ import { getKeyMetrics } from "@/lib/demo-data";
 import { Users, UserMinus, Clock, AlertTriangle, Briefcase, Smile } from "lucide-react";
 
 const metricsConfig = [
-  { key: "activeEmployees", label: "Active Employees", icon: Users, format: (v: number) => v.toString(), color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-950/50", tooltip: "Total number of employees currently marked as active across all departments." },
-  { key: "turnoverRate", label: "Turnover Rate", icon: UserMinus, format: (v: number) => `${v}%`, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/50", tooltip: "Percentage of employees who left (voluntarily or involuntarily) in the selected period." },
-  { key: "atRiskCount", label: "At-Risk Employees", icon: AlertTriangle, format: (v: number) => v.toString(), color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-950/50", tooltip: "Active employees with an attrition risk score above 45. Reviews recommended." },
-  { key: "avgTenureMonths", label: "Avg Tenure", icon: Clock, format: (v: number) => `${Math.floor(v / 12)}y ${v % 12}m`, color: "text-violet-600 dark:text-violet-400", bg: "bg-violet-50 dark:bg-violet-950/50", tooltip: "Average number of months active employees have been with the company." },
-  { key: "openPositions", label: "Open Positions", icon: Briefcase, format: (v: number) => v.toString(), color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/50", tooltip: "Current number of unfilled job requisitions across all departments." },
-  { key: "eNPS", label: "eNPS Score", icon: Smile, format: (v: number) => v.toString(), color: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-50 dark:bg-indigo-950/50", tooltip: "Employee Net Promoter Score. Ranges from -100 to +100. Above 30 is considered good." },
+  { key: "activeEmployees", label: "Employés actifs", icon: Users, format: (v: number) => v.toString(), color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-950/50", tooltip: "Nombre total d'employés actuellement marqués comme actifs dans tous les départements." },
+  { key: "turnoverRate", label: "Taux de turnover", icon: UserMinus, format: (v: number) => `${v}%`, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/50", tooltip: "Pourcentage d'employés ayant quitté l'entreprise (volontairement ou non) durant la période sélectionnée." },
+  { key: "atRiskCount", label: "Employés à risque", icon: AlertTriangle, format: (v: number) => v.toString(), color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-950/50", tooltip: "Employés actifs avec un score de risque d'attrition supérieur à 45. Entretiens recommandés." },
+  { key: "avgTenureMonths", label: "Ancienneté moy.", icon: Clock, format: (v: number) => `${Math.floor(v / 12)}y ${v % 12}m`, color: "text-violet-600 dark:text-violet-400", bg: "bg-violet-50 dark:bg-violet-950/50", tooltip: "Nombre moyen de mois d'ancienneté des employés actifs." },
+  { key: "openPositions", label: "Postes ouverts", icon: Briefcase, format: (v: number) => v.toString(), color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/50", tooltip: "Nombre actuel de postes à pourvoir dans tous les départements." },
+  { key: "eNPS", label: "Score eNPS", icon: Smile, format: (v: number) => v.toString(), color: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-50 dark:bg-indigo-950/50", tooltip: "Score Net Promoter Employé. Varie de -100 à +100. Au-dessus de 30 est considéré comme bon." },
 ];
 
 interface StatCardsProps {

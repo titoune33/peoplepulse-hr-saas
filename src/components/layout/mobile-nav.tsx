@@ -24,11 +24,11 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
-  { href: "/employees", label: "Employees", icon: Users },
-  { href: "/reports", label: "Reports", icon: FileText },
-  { href: "/insights", label: "AI Insights", icon: Zap },
-  { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/dashboard", label: "Tableau de bord", icon: BarChart3 },
+  { href: "/employees", label: "Employés", icon: Users },
+  { href: "/reports", label: "Rapports", icon: FileText },
+  { href: "/insights", label: "Insights IA", icon: Zap },
+  { href: "/settings", label: "Paramètres", icon: Settings },
 ];
 
 export function MobileNav() {
@@ -58,7 +58,7 @@ export function MobileNav() {
         <button
           onClick={() => setOpen(!open)}
           className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -87,13 +87,13 @@ export function MobileNav() {
             </div>
             <div>
               <span className="font-bold text-base text-zinc-900 dark:text-zinc-100">PeoplePulse</span>
-              <span className="block text-[10px] text-zinc-400 font-medium uppercase tracking-wider leading-none">HR Analytics</span>
+              <span className="block text-[10px] text-zinc-400 font-medium uppercase tracking-wider leading-none">Analytics RH</span>
             </div>
           </Link>
           <button
             onClick={() => setOpen(false)}
             className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400"
-            aria-label="Close menu"
+            aria-label="Fermer le menu"
           >
             <X className="w-4 h-4" />
           </button>
@@ -131,10 +131,10 @@ export function MobileNav() {
               : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
           )}>
             <Crown className="w-3.5 h-3.5" />
-            <span className="font-semibold">{isPro ? "Pro Plan" : "Free Plan"}</span>
+            <span className="font-semibold">{isPro ? "Offre Pro" : "Offre Gratuite"}</span>
             {!isPro && (
               <Link href="/pricing" onClick={() => setOpen(false)} className="ml-auto text-violet-600 dark:text-violet-400 hover:underline">
-                Upgrade
+                Passer à Pro
               </Link>
             )}
           </div>
@@ -143,10 +143,10 @@ export function MobileNav() {
           <button
             onClick={cycleTheme}
             className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-            aria-label="Toggle theme"
+            aria-label="Changer le thème"
           >
             {resolved === "dark" ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
-            <span>{theme === "system" ? "System" : theme === "dark" ? "Dark" : "Light"}</span>
+            <span>{theme === "system" ? "Système" : theme === "dark" ? "Sombre" : "Clair"}</span>
           </button>
 
           {/* User info + logout */}
@@ -166,7 +166,7 @@ export function MobileNav() {
                 className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/50 transition-colors"
               >
                 <LogOut className="w-3.5 h-3.5" />
-                Sign out
+                Déconnexion
               </button>
             </>
           )}

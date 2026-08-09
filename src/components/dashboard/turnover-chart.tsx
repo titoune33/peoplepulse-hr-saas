@@ -9,13 +9,13 @@ export function TurnoverChart() {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-5">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Monthly Turnover</h3>
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Turnover mensuel</h3>
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1 text-[11px] text-zinc-500">
-            <span className="w-2 h-2 rounded-full bg-rose-500 inline-block" /> Voluntary
+            <span className="w-2 h-2 rounded-full bg-rose-500 inline-block" /> Volontaire
           </span>
           <span className="flex items-center gap-1 text-[11px] text-zinc-500">
-            <span className="w-2 h-2 rounded-full bg-zinc-400 inline-block" /> Involuntary
+            <span className="w-2 h-2 rounded-full bg-zinc-400 inline-block" /> Involontaire
           </span>
         </div>
       </div>

@@ -9,19 +9,19 @@ import { apiGetReports, apiGenerateReport, Report } from "@/lib/api";
 import { notify } from "@/lib/toast-utils";
 
 const reportTypes = [
-  { type: "turnover", label: "Turnover Report", desc: "Voluntary & involuntary attrition analysis", icon: "📊", color: "bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400" },
-  { type: "diversity", label: "Diversity & Inclusion", desc: "Demographics, representation, pay equity", icon: "🌍", color: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400" },
-  { type: "compensation", label: "Compensation Analysis", desc: "Salary bands, equity, market benchmarks", icon: "💰", color: "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400" },
-  { type: "recruiting", label: "Recruiting Pipeline", desc: "Time-to-hire, funnel conversion, source effectiveness", icon: "🎯", color: "bg-violet-50 text-violet-700 dark:bg-violet-950/50 dark:text-violet-400" },
-  { type: "compliance", label: "Compliance Report", desc: "SOC 2, GDPR, mandatory training completion", icon: "✅", color: "bg-red-50 text-red-700 dark:bg-red-950/50 dark:text-red-400" },
+  { type: "turnover", label: "Rapport de turnover", desc: "Analyse des départs volontaires et involontaires", icon: "📊", color: "bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400" },
+  { type: "diversity", label: "Diversité & Inclusion", desc: "Démographie, représentation, équité salariale", icon: "🌍", color: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400" },
+  { type: "compensation", label: "Analyse de rémunération", desc: "Grilles salariales, équité, benchmarks du marché", icon: "💰", color: "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400" },
+  { type: "recruiting", label: "Pipeline de recrutement", desc: "Délai d'embauche, conversion du funnel, efficacité des sources", icon: "🎯", color: "bg-violet-50 text-violet-700 dark:bg-violet-950/50 dark:text-violet-400" },
+  { type: "compliance", label: "Rapport de conformité", desc: "SOC 2, RGPD, suivi des formations obligatoires", icon: "✅", color: "bg-red-50 text-red-700 dark:bg-red-950/50 dark:text-red-400" },
 ];
 
 const demoSavedReports = [
-  { id: "1", name: "Q3 2026 Turnover Summary", type: "turnover", date: "2026-08-01", status: "ready" as const },
-  { id: "2", name: "H1 2026 Diversity Report", type: "diversity", date: "2026-07-15", status: "ready" as const },
-  { id: "3", name: "Comp Review Cycle -- Aug 2026", type: "compensation", date: "2026-08-05", status: "generating" as const },
-  { id: "4", name: "Q2 Recruiting Effectiveness", type: "recruiting", date: "2026-07-01", status: "ready" as const },
-  { id: "5", name: "SOC 2 Compliance -- August", type: "compliance", date: "2026-08-08", status: "ready" as const },
+  { id: "1", name: "Résumé turnover T3 2026", type: "turnover", date: "2026-08-01", status: "ready" as const },
+  { id: "2", name: "Rapport diversité S1 2026", type: "diversity", date: "2026-07-15", status: "ready" as const },
+  { id: "3", name: "Cycle de revue des rémunérations -- Août 2026", type: "compensation", date: "2026-08-05", status: "generating" as const },
+  { id: "4", name: "Efficacité recrutement T2", type: "recruiting", date: "2026-07-01", status: "ready" as const },
+  { id: "5", name: "Conformité SOC 2 -- Août", type: "compliance", date: "2026-08-08", status: "ready" as const },
 ];
 
 export default function ReportsPage() {
@@ -58,7 +58,7 @@ export default function ReportsPage() {
       try {
         const res = await apiGenerateReport(type);
         if (res.success) {
-          notify.success("Report generated", `Your ${type} report is ready.`);
+          notify.success("Rapport généré", `Votre rapport ${type} est prêt.`);
           fetchReports();
           setGenerating(null);
           return;
@@ -71,15 +71,15 @@ export default function ReportsPage() {
     // Demo fallback with simulated delay
     setTimeout(() => {
       setGenerating(null);
-      notify.success("Report generated", `${type.charAt(0).toUpperCase() + type.slice(1)} report is ready to view.`);
+      notify.success("Rapport généré", `${type.charAt(0).toUpperCase() + type.slice(1)} report is ready to view.`);
 
       // Add to saved reports
       const labels: Record<string, string> = {
-        turnover: "Turnover Report",
-        diversity: "Diversity & Inclusion",
-        compensation: "Compensation Analysis",
-        recruiting: "Recruiting Pipeline",
-        compliance: "Compliance Report",
+        turnover: "Rapport de turnover",
+        diversity: "Diversité & Inclusion",
+        compensation: "Analyse de rémunération",
+        recruiting: "Pipeline de recrutement",
+        compliance: "Rapport de conformité",
       };
       const newReport: Report = {
         id: `r-${Date.now()}`,
@@ -97,8 +97,8 @@ export default function ReportsPage() {
       <HRISStatus />
       <div className="p-6 max-w-[1200px] mx-auto space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Reports</h1>
-          <p className="text-sm text-zinc-500 mt-0.5">Generate and download HR reports from your connected data sources</p>
+          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Rapports</h1>
+          <p className="text-sm text-zinc-500 mt-0.5">Générez et téléchargez des rapports RH depuis vos sources de données connectées</p>
         </div>
 
         {/* Error banner */}
@@ -106,13 +106,13 @@ export default function ReportsPage() {
           <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-sm text-amber-700 dark:text-amber-400">
             <AlertCircle className="w-4 h-4 shrink-0" />
             {error}
-            <button onClick={fetchReports} className="ml-auto text-xs font-medium underline hover:no-underline">Retry</button>
+            <button onClick={fetchReports} className="ml-auto text-xs font-medium underline hover:no-underline">Réessayer</button>
           </div>
         )}
 
         {/* Generate New */}
         <div>
-          <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Generate New Report</h2>
+          <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Générer un nouveau rapport</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {reportTypes.map((r) => (
               <div key={r.type} className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 hover:shadow-md transition-shadow">
@@ -135,10 +135,10 @@ export default function ReportsPage() {
                   {generating === r.type ? (
                     <>
                       <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                      Generating...
+                      Génération...
                     </>
                   ) : (
-                    "Generate Report"
+                    "Générer un rapport"
                   )}
                 </button>
               </div>
@@ -149,7 +149,7 @@ export default function ReportsPage() {
         {/* Saved Reports */}
         <div>
           <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">
-            Saved Reports
+            Rapports enregistrés
             {isLoading && <Loader2 className="w-3.5 h-3.5 animate-spin inline ml-2 text-zinc-400" />}
           </h2>
           {savedReports.length === 0 ? (
@@ -157,8 +157,8 @@ export default function ReportsPage() {
               <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-6 h-6 text-zinc-400" />
               </div>
-              <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400 mb-1">No reports yet</p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-500">Generate your first report above</p>
+              <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400 mb-1">Aucun rapport</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-500">Générez votre premier rapport ci-dessus</p>
             </div>
           ) : (
             <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">

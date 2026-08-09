@@ -144,11 +144,11 @@ export default function DashboardPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">People Dashboard</h1>
+              <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Tableau de bord</h1>
               {isPro ? (
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-100 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
                   <Crown className="w-3 h-3" />
-                  AI POWERED
+                  IA ACTIVÉE
                 </span>
               ) : (
                 <Link
@@ -156,12 +156,12 @@ export default function DashboardPage() {
                   className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 hover:border-violet-300 dark:hover:border-violet-700 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
                 >
                   <Crown className="w-3 h-3" />
-                  Upgrade for AI insights
+                  Passer à Pro pour l'IA
                 </Link>
               )}
             </div>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
-              {metrics.activeEmployees} active employees · {metrics.openPositions} open positions · Last updated today
+              {metrics.activeEmployees} employés actifs · {metrics.openPositions} postes ouverts · Mis à jour aujourd'hui
             </p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">

@@ -14,9 +14,9 @@ export function AtRiskList() {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-5">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">At-Risk Employees</h3>
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Employés à risque</h3>
         <button className="text-xs text-violet-600 dark:text-violet-400 hover:underline font-medium">
-          View all
+          Voir tout
         </button>
       </div>
       <div className="space-y-3">

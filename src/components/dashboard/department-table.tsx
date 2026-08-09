@@ -6,16 +6,16 @@ export function DepartmentTable() {
 
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-5">
-      <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Department Breakdown</h3>
+      <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Répartition par département</h3>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-zinc-200 dark:border-zinc-800">
-              <th className="text-left py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Department</th>
-              <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Headcount</th>
+              <th className="text-left py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Département</th>
+              <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Effectif</th>
               <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Turnover</th>
-              <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Avg Tenure</th>
-              <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Avg Salary</th>
+              <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Ancienneté moy.</th>
+              <th className="text-right py-2.5 text-xs font-medium text-zinc-500 uppercase tracking-wider">Salaire moy.</th>
             </tr>
           </thead>
           <tbody>

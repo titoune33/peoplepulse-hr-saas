@@ -27,7 +27,7 @@ export function AIInsights({ apiInsights, isPro }: AIInsightsProps) {
         <div className="w-6 h-6 rounded-md bg-violet-600 flex items-center justify-center">
           <Zap className="w-3.5 h-3.5 text-white" />
         </div>
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">AI Insights</h3>
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Insights IA</h3>
         {isPro ? (
           <span className="text-[10px] text-zinc-400 bg-amber-50 dark:bg-amber-950/50 px-1.5 py-0.5 rounded-full font-medium border border-amber-200 dark:border-amber-800">
             <Crown className="w-2.5 h-2.5 inline mr-0.5 text-amber-500" />
@@ -35,7 +35,7 @@ export function AIInsights({ apiInsights, isPro }: AIInsightsProps) {
           </span>
         ) : (
           <span className="text-[10px] text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded-full font-medium">
-            Demo data
+            Données démo
           </span>
         )}
       </div>
@@ -45,13 +45,13 @@ export function AIInsights({ apiInsights, isPro }: AIInsightsProps) {
           <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mx-auto mb-3">
             <Lock className="w-5 h-5 text-zinc-400" />
           </div>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">AI insights are a Pro feature</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">Les insights IA sont une fonctionnalité Pro</p>
           <Link
             href="/pricing"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 transition-colors"
           >
             <Crown className="w-3.5 h-3.5" />
-            Upgrade to Pro for AI-powered insights
+            Passez à Pro pour des insights boostés par l'IA
           </Link>
         </div>
       ) : (

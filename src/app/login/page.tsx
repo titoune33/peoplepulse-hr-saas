@@ -26,7 +26,7 @@ export default function LoginPage() {
     if (result.success) {
       router.push("/");
     } else {
-      setError(result.error || "Login failed. Please try again.");
+      setError(result.error || "Échec de la connexion. Veuillez réessayer.");
     }
   };
 
@@ -41,12 +41,12 @@ export default function LoginPage() {
             </div>
             <span className="text-xl font-bold text-zinc-900 dark:text-zinc-100">PeoplePulse</span>
           </Link>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">Sign in to your HR analytics dashboard</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">Connectez-vous à votre tableau de bord RH</p>
         </div>
 
         {/* Card */}
         <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8 shadow-sm">
-          <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6">Welcome back</h1>
+          <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6">Bon retour</h1>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
@@ -57,7 +57,7 @@ export default function LoginPage() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                Email address
+                Adresse email
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -68,7 +68,7 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   autoComplete="email"
-                  placeholder="you@company.com"
+                  placeholder="vous@entreprise.com"
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors"
                 />
               </div>
@@ -76,7 +76,7 @@ export default function LoginPage() {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                Password
+                Mot de passe
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -87,14 +87,14 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   autoComplete="current-password"
-                  placeholder="Enter your password"
+                  placeholder="Entrez votre mot de passe"
                   className="w-full pl-9 pr-10 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -109,26 +109,26 @@ export default function LoginPage() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Signing in...
+                  Connexion...
                 </>
               ) : (
-                "Sign in"
+                "Se connecter"
               )}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              Don&apos;t have an account?{" "}
+              Pas encore de compte ?{" "}
               <Link href="/register" className="text-violet-600 hover:text-violet-700 dark:text-violet-400 font-medium">
-                Create one
+                Créer un compte
               </Link>
             </p>
           </div>
         </div>
 
         <p className="text-center text-xs text-zinc-400 mt-6">
-          By signing in, you agree to our Terms of Service and Privacy Policy.
+          En vous connectant, vous acceptez nos Conditions d&apos;utilisation et notre Politique de confidentialité.
         </p>
       </div>
     </div>

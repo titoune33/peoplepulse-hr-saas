@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PeoplePulse -- HR Analytics That Actually Works",
-  description: "Unified people analytics across your entire HR stack. Real reports, AI insights, zero technical expertise required.",
+  title: "PeoplePulse — Analytics RH par IA",
+  description: "Analysez vos données RH, prédisez le turnover et générez des rapports de conformité. La plateforme analytics RH propulsée par l'IA, conçue pour le marché français.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex">
         <Providers>
           <AppShell>{children}</AppShell>

@@ -68,7 +68,7 @@ function Navbar() {
             <div>
               <span className="font-bold text-lg text-zinc-900 dark:text-zinc-100">PeoplePulse</span>
               <span className="hidden sm:block text-[10px] text-zinc-400 font-medium uppercase tracking-wider leading-none">
-                HR Analytics
+                Analytics RH
               </span>
             </div>
           </Link>
@@ -76,13 +76,13 @@ function Navbar() {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
             <a href="#features" className="px-3 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors rounded-lg">
-              Features
+              Fonctionnalités
             </a>
             <a href="#how-it-works" className="px-3 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors rounded-lg">
-              How it works
+              Comment ça marche
             </a>
             <a href="#pricing" className="px-3 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors rounded-lg">
-              Pricing
+              Tarifs
             </a>
           </nav>
 
@@ -91,7 +91,7 @@ function Navbar() {
             <button
               onClick={cycleTheme}
               className="p-2 rounded-lg text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              aria-label="Toggle theme"
+              aria-label="Changer le thème"
             >
               {resolved === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -101,7 +101,7 @@ function Navbar() {
                 href="/dashboard"
                 className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors"
               >
-                Dashboard
+                Tableau de bord
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : (
@@ -110,13 +110,13 @@ function Navbar() {
                   href="/login"
                   className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
-                  Sign in
+                  Connexion
                 </Link>
                 <Link
                   href="/register"
                   className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors shadow-sm"
                 >
-                  Get started
+                  Essayer gratuitement
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -126,7 +126,7 @@ function Navbar() {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              aria-label="Toggle menu"
+              aria-label="Menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -139,13 +139,13 @@ function Navbar() {
         <div className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
           <div className="px-4 py-4 space-y-2">
             <a href="#features" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800">
-              Features
+              Fonctionnalités
             </a>
             <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800">
-              How it works
+              Comment ça marche
             </a>
             <a href="#pricing" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-sm text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800">
-              Pricing
+              Tarifs
             </a>
             <div className="pt-2 space-y-2">
               {user ? (
@@ -154,7 +154,7 @@ function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-medium bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors"
                 >
-                  Dashboard
+                  Tableau de bord
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               ) : (
@@ -164,14 +164,14 @@ function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className="block w-full text-center px-4 py-2.5 text-sm font-medium border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
                   >
-                    Sign in
+                    Connexion
                   </Link>
                   <Link
                     href="/register"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-medium bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors"
                   >
-                    Get started
+                    Essayer gratuitement
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </>
@@ -202,21 +202,21 @@ function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-violet-50 dark:bg-violet-950/50 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-800 mb-8">
           <Zap className="w-3 h-3" />
-          AI-powered HR analytics
+          Analytics RH propulsé par l'IA
         </div>
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 max-w-4xl mx-auto leading-[1.1]">
-          Turn your HR data into{" "}
+          Transformez vos données RH en{" "}
           <span className="bg-gradient-to-r from-violet-600 to-amber-500 bg-clip-text text-transparent">
-            actionable insights
+            décisions stratégiques
           </span>
         </h1>
 
         {/* Subheadline */}
         <p className="mt-6 text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-          Predict attrition before it happens, generate compliance reports in seconds,
-          and make data-driven people decisions — all without a data science team.
+          Anticipez les départs avant qu'ils ne surviennent, générez des rapports de conformité en quelques secondes,
+          et pilotez vos talents avec des données fiables — sans data scientist.
         </p>
 
         {/* CTA buttons */}
@@ -225,14 +225,14 @@ function Hero() {
             href={user ? "/dashboard" : "/register"}
             className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold bg-violet-600 hover:bg-violet-700 text-white rounded-xl transition-all shadow-lg shadow-violet-600/25 hover:shadow-violet-600/40 hover:-translate-y-0.5"
           >
-            {user ? "Go to dashboard" : "Start free trial"}
+            {user ? "Accéder au tableau de bord" : "Essai gratuit de 14 jours"}
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
             href="#features"
             className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-xl transition-colors"
           >
-            See how it works
+            Découvrir les fonctionnalités
             <ChevronRight className="w-4 h-4" />
           </a>
         </div>
@@ -240,10 +240,10 @@ function Hero() {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-3xl mx-auto">
           {[
-            { value: "147+", label: "Employees tracked" },
-            { value: "94%", label: "Retention accuracy" },
-            { value: "5min", label: "Setup time" },
-            { value: "10+", label: "Report types" },
+            { value: "147+", label: "Employés suivis" },
+            { value: "94%", label: "Précision IA" },
+            { value: "5min", label: "Pour démarrer" },
+            { value: "10+", label: "Types de rapports" },
           ].map((stat) => (
             <div key={stat.label}>
               <div className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
@@ -265,44 +265,44 @@ function Hero() {
 const features = [
   {
     icon: Brain,
-    title: "AI-Powered Insights",
+    title: "Insights IA",
     description:
-      "Our Mistral 7B model analyzes your workforce data to surface hidden patterns, flight risks, and opportunities you'd never spot manually.",
+      "Notre moteur Mistral 7B analyse vos effectifs pour détecter des tendances invisibles, les risques de départ et les opportunités d'amélioration.",
     color: "violet",
   },
   {
     icon: Target,
-    title: "Predictive Attrition",
+    title: "Prédiction du turnover",
     description:
-      "Identify at-risk employees before they leave. Risk scores, contributing factors, and recommended retention actions for every team member.",
+      "Identifiez les talents à risque avant qu'ils ne démissionnent. Scores de risque, facteurs clés et actions recommandées pour chaque collaborateur.",
     color: "rose",
   },
   {
     icon: PieChart,
-    title: "Smart Reports",
+    title: "Rapports intelligents",
     description:
-      "Generate turnover, diversity, compensation, recruiting, and compliance reports in one click. Share-ready PDFs, always audit-ready.",
+      "Générez en un clic des rapports de turnover, diversité, rémunération, recrutement et conformité. Prêts à partager, toujours à jour.",
     color: "amber",
   },
   {
     icon: BarChart3,
-    title: "Real-Time Dashboard",
+    title: "Tableau de bord en direct",
     description:
-      "Live KPIs, headcount trends, department breakdowns, and turnover rates — all updated in real time across your entire organization.",
+      "KPIs en temps réel, évolution des effectifs, analyses par département et taux de turnover — actualisés en continu dans toute l'entreprise.",
     color: "blue",
   },
   {
     icon: Shield,
-    title: "Compliance Ready",
+    title: "Conformité RGPD",
     description:
-      "Built-in compliance reporting for EEOC, GDPR, and SOC 2. Never scramble for an audit again. Your data is encrypted at rest and in transit.",
+      "Rapports de conformité intégrés pour le RGPD, la DSN et les audits sociaux. Vos données sont chiffrées et hébergées en Europe.",
     color: "emerald",
   },
   {
     icon: Globe,
-    title: "Multi-Source Integration",
+    title: "Multi-sources",
     description:
-      "Connect BambooHR, Workday, ADP, or upload CSVs. One unified view across your entire HR stack. Zero technical expertise required.",
+      "Connectez BambooHR, Workday, ADP, ou importez un fichier Excel. Une vue unifiée de tout votre écosystème RH. Zéro expertise technique.",
     color: "cyan",
   },
 ];
@@ -320,20 +320,18 @@ function Features() {
   return (
     <section id="features" className="py-20 sm:py-28 bg-white dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-            Everything you need to{" "}
+            Tout ce qu'il vous faut pour{" "}
             <span className="bg-gradient-to-r from-violet-600 to-amber-500 bg-clip-text text-transparent">
-              master HR analytics
+              maîtriser vos analytics RH
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400">
-            From predictive attrition to compliance reports — all in one platform.
+            De la prédiction du turnover aux rapports de conformité — tout sur une seule plateforme.
           </p>
         </div>
 
-        {/* Feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature) => {
             const colors = colorMap[feature.color];
@@ -370,23 +368,23 @@ function Features() {
 const steps = [
   {
     step: "01",
-    title: "Connect your HR stack",
+    title: "Connectez votre SIRH",
     description:
-      "Integrate with BambooHR, Workday, ADP, or upload a CSV. One click and your data is synced — no engineering required.",
+      "Intégrez BambooHR, Workday, ADP, ou importez un fichier Excel. Un clic et vos données sont synchronisées — sans intervention technique.",
     icon: Globe,
   },
   {
     step: "02",
-    title: "AI analyzes your workforce",
+    title: "L'IA analyse vos effectifs",
     description:
-      "PeoplePulse's AI engine scans for attrition risks, diversity gaps, compensation anomalies, and compliance issues automatically.",
+      "PeoplePulse scanne automatiquement les risques de départ, les écarts de rémunération, les anomalies de diversité et les enjeux de conformité.",
     icon: Brain,
   },
   {
     step: "03",
-    title: "Act on real insights",
+    title: "Agissez avec des vrais insights",
     description:
-      "Get actionable recommendations, generate compliance-ready reports, and make data-driven decisions that retain your best talent.",
+      "Recevez des recommandations actionnables, générez des rapports prêts pour l'audit, et prenez des décisions qui fidélisent vos meilleurs talents.",
     icon: Target,
   },
 ];
@@ -397,20 +395,19 @@ function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-            From data to decisions in{" "}
+            De la donnée à la décision en{" "}
             <span className="bg-gradient-to-r from-violet-600 to-amber-500 bg-clip-text text-transparent">
-              3 steps
+              3 étapes
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400">
-            No data science team. No complex setup. Just results.
+            Pas besoin d'équipe data. Pas de configuration complexe. Juste des résultats.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
             <div key={step.step} className="relative">
-              {/* Connector line (desktop) */}
               {i < steps.length - 1 && (
                 <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-violet-200 dark:from-violet-800 to-transparent" />
               )}
@@ -447,13 +444,13 @@ function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-            Simple,{" "}
+            Des tarifs{" "}
             <span className="bg-gradient-to-r from-violet-600 to-amber-500 bg-clip-text text-transparent">
-              transparent pricing
+              simples et transparents
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400">
-            Start free. Upgrade when you need AI superpowers.
+            Commencez gratuitement. Passez à la version Pro quand vous avez besoin de l'IA.
           </p>
         </div>
 
@@ -465,23 +462,23 @@ function Pricing() {
                 <Users className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">Free</h3>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">For small teams</p>
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">Gratuit</h3>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">Pour les TPE/PME</p>
               </div>
             </div>
 
             <div className="mb-6">
-              <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">$0</span>
-              <span className="text-zinc-500 dark:text-zinc-400">/month</span>
+              <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">0€</span>
+              <span className="text-zinc-500 dark:text-zinc-400">/mois</span>
             </div>
 
             <ul className="space-y-3 mb-8">
               {[
-                "Up to 50 employees",
-                "Basic dashboard & KPIs",
-                "3 report types",
-                "CSV import",
-                "Email support",
+                "Jusqu'à 50 collaborateurs",
+                "Tableau de bord & KPIs essentiels",
+                "3 types de rapports",
+                "Import Excel/CSV",
+                "Support par email",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-400">
                   <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
@@ -494,14 +491,14 @@ function Pricing() {
               href={user ? "/dashboard" : "/register"}
               className="block w-full text-center py-3 rounded-xl text-sm font-semibold border-2 border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
             >
-              {user ? "Go to dashboard" : "Start for free"}
+              {user ? "Tableau de bord" : "Commencer gratuitement"}
             </Link>
           </div>
 
           {/* Pro plan */}
           <div className="relative p-8 rounded-2xl border-2 border-violet-500 bg-white dark:bg-zinc-900 shadow-xl shadow-violet-500/10">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-violet-600 to-amber-500 text-white">
-              MOST POPULAR
+              LE PLUS POPULAIRE
             </div>
 
             <div className="flex items-center gap-3 mb-4 mt-2">
@@ -510,23 +507,23 @@ function Pricing() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">Pro</h3>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">For growing companies</p>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">Pour les entreprises en croissance</p>
               </div>
             </div>
 
             <div className="mb-6">
-              <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">$49</span>
-              <span className="text-zinc-500 dark:text-zinc-400">/month</span>
+              <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">49€</span>
+              <span className="text-zinc-500 dark:text-zinc-400">/mois</span>
             </div>
 
             <ul className="space-y-3 mb-8">
               {[
-                "Unlimited employees",
-                "AI-powered insights (Mistral 7B)",
-                "All 10 report types",
-                "Predictive attrition scoring",
-                "HRIS integrations (BambooHR, Workday, ADP)",
-                "Priority support",
+                "Collaborateurs illimités",
+                "Insights IA (Mistral 7B)",
+                "Tous les types de rapports",
+                "Prédiction du turnover",
+                "Intégrations SIRH (BambooHR, Workday, ADP)",
+                "Support prioritaire",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-400">
                   <Check className="w-4 h-4 text-violet-500 mt-0.5 shrink-0" />
@@ -539,7 +536,7 @@ function Pricing() {
               href={user ? "/pricing" : "/register"}
               className="block w-full text-center py-3 rounded-xl text-sm font-semibold bg-violet-600 hover:bg-violet-700 text-white transition-colors shadow-lg shadow-violet-600/25"
             >
-              Upgrade to Pro
+              Passer à la version Pro
             </Link>
           </div>
         </div>
@@ -557,27 +554,26 @@ function CTASection() {
     <section className="py-20 sm:py-28 bg-zinc-50 dark:bg-zinc-900/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="relative p-10 sm:p-16 rounded-3xl bg-gradient-to-br from-violet-600 via-violet-700 to-purple-800 overflow-hidden">
-          {/* Decorative circles */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
 
           <div className="relative">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to stop guessing about your workforce?
+              Prêt à arrêter de piloter vos RH à l'aveugle ?
             </h2>
             <p className="text-lg text-violet-200 mb-10 max-w-xl mx-auto">
-              Join hundreds of HR teams using PeoplePulse to predict attrition,
-              generate reports, and make data-driven decisions.
+              Rejoignez les DRH qui utilisent PeoplePulse pour anticiper les départs,
+              générer des rapports et prendre des décisions basées sur les données.
             </p>
             <Link
               href={user ? "/dashboard" : "/register"}
               className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold bg-white hover:bg-zinc-100 text-violet-700 rounded-xl transition-colors shadow-lg"
             >
-              {user ? "Go to dashboard" : "Start your free trial"}
+              {user ? "Accéder au tableau de bord" : "Démarrer votre essai gratuit"}
               <ArrowRight className="w-4 h-4" />
             </Link>
             <p className="mt-4 text-sm text-violet-300">
-              No credit card required · Free plan available · 5-minute setup
+              Pas de carte bancaire · Offre gratuite disponible · 5 minutes pour démarrer
             </p>
           </div>
         </div>
@@ -601,42 +597,42 @@ function Footer() {
               <span className="font-bold text-lg text-zinc-900 dark:text-zinc-100">PeoplePulse</span>
             </Link>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              HR analytics that actually works. AI-powered insights for modern people teams.
+              L'analytique RH qui fait la différence. Insights propulsés par l'IA pour les directions RH modernes.
             </p>
           </div>
 
           <div>
             <h4 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">
-              Product
+              Produit
             </h4>
             <ul className="space-y-2.5">
-              <li><a href="#features" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Features</a></li>
-              <li><a href="#pricing" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Pricing</a></li>
-              <li><Link href="/login" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Sign in</Link></li>
-              <li><Link href="/register" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Sign up</Link></li>
+              <li><a href="#features" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Fonctionnalités</a></li>
+              <li><a href="#pricing" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Tarifs</a></li>
+              <li><Link href="/login" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Connexion</Link></li>
+              <li><Link href="/register" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Inscription</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">
-              Resources
+              Ressources
             </h4>
             <ul className="space-y-2.5">
               <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">API Reference</a></li>
+              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">API</a></li>
               <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Blog</a></li>
-              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Changelog</a></li>
+              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Nouveautés</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">
-              Company
+              Entreprise
             </h4>
             <ul className="space-y-2.5">
-              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">About</a></li>
-              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">À propos</a></li>
+              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Confidentialité</a></li>
+              <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">CGV</a></li>
               <li><a href="#" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -644,10 +640,10 @@ function Footer() {
 
         <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-zinc-400 dark:text-zinc-500">
-            &copy; {new Date().getFullYear()} PeoplePulse. All rights reserved.
+            &copy; {new Date().getFullYear()} PeoplePulse. Tous droits réservés.
           </p>
           <p className="text-xs text-zinc-400 dark:text-zinc-500">
-            Built with &hearts; for HR teams everywhere.
+            Fait avec &hearts; pour les équipes RH.
           </p>
         </div>
       </div>
@@ -660,7 +656,6 @@ function Footer() {
 export default function LandingPage() {
   const { user } = useAuth();
 
-  // If user is logged in, show a redirect to dashboard instead
   if (user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-zinc-950">
@@ -669,16 +664,16 @@ export default function LandingPage() {
             <TrendingUp className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
-            Welcome back, {user.name}!
+            Bon retour, {user.name} !
           </h1>
           <p className="text-zinc-500 dark:text-zinc-400 mb-6">
-            Your dashboard is ready.
+            Votre tableau de bord est prêt.
           </p>
           <Link
             href="/dashboard"
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-violet-600 hover:bg-violet-700 text-white rounded-xl transition-colors"
           >
-            Go to dashboard
+            Accéder au tableau de bord
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

@@ -18,27 +18,27 @@ import {
 } from "lucide-react";
 
 const companySizes = [
-  "1-10 employees",
-  "11-50 employees",
-  "51-200 employees",
-  "201-500 employees",
-  "501-1000 employees",
-  "1000+ employees",
+  "1-10 employés",
+  "11-50 employés",
+  "51-200 employés",
+  "201-500 employés",
+  "501-1000 employés",
+  "1000+ employés",
 ];
 
 const industries = [
-  "Technology",
-  "Healthcare",
+  "Technologie",
+  "Santé",
   "Finance",
-  "Retail",
-  "Manufacturing",
-  "Education",
-  "Consulting",
+  "Commerce",
+  "Industrie",
+  "Éducation",
+  "Conseil",
   "Marketing",
-  "Real Estate",
-  "Non-Profit",
-  "Government",
-  "Other",
+  "Immobilier",
+  "Association",
+  "Gouvernement",
+  "Autre",
 ];
 
 export default function RegisterPage() {
@@ -72,7 +72,7 @@ export default function RegisterPage() {
     if (result.success) {
       router.push("/");
     } else {
-      setError(result.error || "Registration failed. Please try again.");
+      setError(result.error || "Échec de l'inscription. Veuillez réessayer.");
     }
   };
 
@@ -87,12 +87,12 @@ export default function RegisterPage() {
             </div>
             <span className="text-xl font-bold text-zinc-900 dark:text-zinc-100">PeoplePulse</span>
           </Link>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">Create your account and start analyzing your people data</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">Créez votre compte et commencez à analyser vos données RH</p>
         </div>
 
         {/* Card */}
         <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8 shadow-sm">
-          <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6">Create your account</h1>
+          <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6">Créez votre compte</h1>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
@@ -103,7 +103,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                Full name <span className="text-red-500">*</span>
+                Nom complet <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -113,7 +113,7 @@ export default function RegisterPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  placeholder="Jane Smith"
+                  placeholder="Jean Dupont"
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors"
                 />
               </div>
@@ -121,7 +121,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="reg-email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                Work email <span className="text-red-500">*</span>
+                Email professionnel <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -132,7 +132,7 @@ export default function RegisterPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   autoComplete="email"
-                  placeholder="you@company.com"
+                  placeholder="vous@entreprise.com"
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors"
                 />
               </div>
@@ -140,7 +140,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="reg-password" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                Password <span className="text-red-500">*</span>
+                Mot de passe <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -151,7 +151,7 @@ export default function RegisterPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   autoComplete="new-password"
-                  placeholder="Min. 8 characters"
+                  placeholder="Min. 8 caractères"
                   minLength={8}
                   className="w-full pl-9 pr-10 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors"
                 />
@@ -159,7 +159,7 @@ export default function RegisterPage() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -168,7 +168,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="company" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                Company name <span className="text-red-500">*</span>
+                Nom de l&apos;entreprise <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -178,7 +178,7 @@ export default function RegisterPage() {
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
                   required
-                  placeholder="Acme Inc."
+                  placeholder="Exemple SARL"
                   className="w-full pl-9 pr-4 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors"
                 />
               </div>
@@ -187,7 +187,7 @@ export default function RegisterPage() {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label htmlFor="company-size" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Company size <span className="text-red-500">*</span>
+                  Taille de l&apos;entreprise <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <select
@@ -197,7 +197,7 @@ export default function RegisterPage() {
                     required
                     className="w-full pl-3 pr-8 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors appearance-none"
                   >
-                    <option value="">Select size</option>
+                    <option value="">Sélectionnez la taille</option>
                     {companySizes.map((s) => (
                       <option key={s} value={s}>{s}</option>
                     ))}
@@ -207,7 +207,7 @@ export default function RegisterPage() {
               </div>
               <div>
                 <label htmlFor="industry" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Industry <span className="text-red-500">*</span>
+                  Secteur d&apos;activité <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <select
@@ -217,7 +217,7 @@ export default function RegisterPage() {
                     required
                     className="w-full pl-3 pr-8 py-2.5 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-colors appearance-none"
                   >
-                    <option value="">Select industry</option>
+                    <option value="">Sélectionnez le secteur</option>
                     {industries.map((ind) => (
                       <option key={ind} value={ind}>{ind}</option>
                     ))}
@@ -235,26 +235,26 @@ export default function RegisterPage() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Creating account...
+                  Création du compte...
                 </>
               ) : (
-                "Create account"
+                "Créer un compte"
               )}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              Already have an account?{" "}
+              Déjà un compte ?{" "}
               <Link href="/login" className="text-violet-600 hover:text-violet-700 dark:text-violet-400 font-medium">
-                Sign in
+                Se connecter
               </Link>
             </p>
           </div>
         </div>
 
         <p className="text-center text-xs text-zinc-400 mt-6">
-          By creating an account, you agree to our Terms of Service and Privacy Policy.
+          En créant un compte, vous acceptez nos Conditions d&apos;utilisation et notre Politique de confidentialité.
         </p>
       </div>
     </div>
