@@ -4,7 +4,7 @@ services:
     env: node
     rootDir: backend
     buildCommand: npm ci && mkdir -p data
-    startCommand: npx tsx src/index.ts
+    startCommand: npx tsx src/seed.ts && npx tsx src/index.ts
     plan: free
     envVars:
       - key: NODE_ENV
