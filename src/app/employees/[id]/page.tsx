@@ -32,19 +32,19 @@ export default function EmployeeDetailPage() {
             // Fallback to demo
             const demo = allEmployees.find((e) => e.id === id) || null;
             setEmployee(demo);
-            if (!demo) setError("Employee not found.");
+            if (!demo) setError("Employé introuvable.");
           }
         })
         .catch(() => {
           const demo = allEmployees.find((e) => e.id === id) || null;
           setEmployee(demo);
-          if (!demo) setError("Employee not found.");
+          if (!demo) setError("Employé introuvable.");
         })
         .finally(() => setIsLoading(false));
     } else {
       const demo = allEmployees.find((e) => e.id === id) || null;
       setEmployee(demo);
-      if (!demo) setError("Employee not found.");
+      if (!demo) setError("Employé introuvable.");
     }
   }, [id, token, allEmployees]);
 
@@ -78,14 +78,14 @@ export default function EmployeeDetailPage() {
           <div className="w-14 h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mx-auto mb-4">
             <AlertTriangle className="w-7 h-7 text-zinc-400" />
           </div>
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1">Employee not found</h2>
-          <p className="text-sm text-zinc-500 mb-4">{error || "This employee does not exist or has been removed."}</p>
+          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1">Employé introuvable</h2>
+          <p className="text-sm text-zinc-500 mb-4">{error || "Cet employé n'existe pas ou a été supprimé."}</p>
           <Link
             href="/employees"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-600 dark:text-violet-400 hover:underline"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Employees
+            Retour aux employés
           </Link>
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function EmployeeDetailPage() {
 
   const emp = employee;
   const tenureMonths = Math.floor((Date.now() - new Date(emp.hireDate).getTime()) / (30 * 24 * 60 * 60 * 1000));
-  const tenureDisplay = tenureMonths >= 12 ? `${Math.floor(tenureMonths / 12)}y ${tenureMonths % 12}m` : `${tenureMonths}m`;
+  const tenureDisplay = tenureMonths >= 12 ? `${Math.floor(tenureMonths / 12)}a ${tenureMonths % 12}m` : `${tenureMonths}m`;
 
   const deptPeers = allEmployees.filter((e) => e.department === emp.department && e.id !== emp.id);
   const avgDeptSalary = Math.round(deptPeers.reduce((s, e) => s + e.salary, 0) / (deptPeers.length || 1));
@@ -104,7 +104,7 @@ export default function EmployeeDetailPage() {
       <HRISStatus />
       <div className="p-6 max-w-[1000px] mx-auto space-y-6">
         <Link href="/employees" className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to Employees
+          <ArrowLeft className="w-4 h-4" /> Retour aux employés
         </Link>
 
         {/* Header */}
@@ -124,7 +124,7 @@ export default function EmployeeDetailPage() {
                   emp.status === "on_leave" ? "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400" :
                   "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
                 )}>
-                  {emp.status === "on_leave" ? "On Leave" : emp.status}
+                  {emp.status === "on_leave" ? "En congé" : emp.status === "active" ? "Actif" : emp.status === "terminated" ? "Terminé" : emp.status}
                 </span>
                 {emp.attritionRisk && emp.attritionRisk.score >= 50 && (
                   <span className={cn(
@@ -133,7 +133,7 @@ export default function EmployeeDetailPage() {
                     "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400"
                   )}>
                     <AlertTriangle className="w-3 h-3" />
-                    At Risk: {emp.attritionRisk.score}
+                    À risque : {emp.attritionRisk.score}
                   </span>
                 )}
               </div>
@@ -149,15 +149,15 @@ export default function EmployeeDetailPage() {
             </div>
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-lg bg-violet-50 dark:bg-violet-950/50 flex items-center justify-center"><Building2 className="w-4 h-4 text-violet-600" /></div>
-              <div><p className="text-xs text-zinc-500">Department</p><p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{emp.department}</p></div>
+              <div><p className="text-xs text-zinc-500">Département</p><p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{emp.department}</p></div>
             </div>
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center"><Calendar className="w-4 h-4 text-emerald-600" /></div>
-              <div><p className="text-xs text-zinc-500">Tenure</p><p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{tenureDisplay} (since {emp.hireDate})</p></div>
+              <div><p className="text-xs text-zinc-500">Ancienneté</p><p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{tenureDisplay} (depuis {emp.hireDate})</p></div>
             </div>
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-lg bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center"><DollarSign className="w-4 h-4 text-amber-600" /></div>
-              <div><p className="text-xs text-zinc-500">Salary</p><p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">${(emp.salary / 1000).toFixed(0)}K {avgDeptSalary > emp.salary ? <span className="text-amber-500 text-xs">· below dept avg (${(avgDeptSalary / 1000).toFixed(0)}K)</span> : null}</p></div>
+              <div><p className="text-xs text-zinc-500">Salaire</p><p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">${(emp.salary / 1000).toFixed(0)}K {avgDeptSalary > emp.salary ? <span className="text-amber-500 text-xs">· sous la moyenne du dépt. (${(avgDeptSalary / 1000).toFixed(0)}K)</span> : null}</p></div>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function EmployeeDetailPage() {
           <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-6">
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="w-5 h-5 text-amber-500" />
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Attrition Risk Analysis</h2>
+              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Analyse du risque d'attrition</h2>
             </div>
             <div className="flex items-center gap-4 mb-4">
               <div className="flex-1 h-3 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
@@ -183,7 +183,7 @@ export default function EmployeeDetailPage() {
               <span className="text-xs text-zinc-500">/100</span>
             </div>
             <div className="space-y-1.5">
-              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider">Risk Factors:</p>
+              <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider">Facteurs de risque :</p>
               {emp.attritionRisk.factors.map((f, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
@@ -198,10 +198,10 @@ export default function EmployeeDetailPage() {
         <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-6">
           <div className="flex items-center gap-2 mb-4">
             <TrendingUp className="w-5 h-5 text-violet-500" />
-            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Department Context</h2>
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Contexte du département</h2>
           </div>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
-            {emp.name} is one of {deptPeers.length + 1} people in {emp.department}. The department average salary is ${(avgDeptSalary / 1000).toFixed(0)}K.
+            {emp.name} fait partie des {deptPeers.length + 1} personnes du département {emp.department}. Le salaire moyen du département est de ${(avgDeptSalary / 1000).toFixed(0)}K.
           </p>
         </div>
       </div>

@@ -40,11 +40,11 @@ export default function EmployeesPage() {
         setEmployees(res.data.employees as unknown as Employee[]);
       } else {
         setEmployees(allEmployeesDemo);
-        setError("Could not load from backend. Showing demo data.");
+        setError("Impossible de charger depuis le backend. Affichage des données de démonstration.");
       }
     } catch {
       setEmployees(allEmployeesDemo);
-      setError("Backend unavailable. Showing demo data.");
+      setError("Backend indisponible. Affichage des données de démonstration.");
     } finally {
       setIsLoading(false);
     }
@@ -101,13 +101,13 @@ export default function EmployeesPage() {
       <div className="p-6 max-w-[1400px] mx-auto space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Employees</h1>
+            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Employés</h1>
             <p className="text-sm text-zinc-500 mt-0.5">
-              {activeCount} active · {atRiskCount} at risk · {allEmployees.length} total
+              {activeCount} actifs · {atRiskCount} à risque · {allEmployees.length} au total
             </p>
           </div>
           <button className="text-xs font-medium bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition-colors">
-            + Add Employee
+            + Ajouter un employé
           </button>
         </div>
 
@@ -117,7 +117,7 @@ export default function EmployeesPage() {
             <AlertCircle className="w-4 h-4 shrink-0" />
             {error}
             <button onClick={fetchFromApi} className="ml-auto text-xs font-medium underline hover:no-underline">
-              Retry
+              Réessayer
             </button>
           </div>
         )}
@@ -128,18 +128,18 @@ export default function EmployeesPage() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
             <input
               type="text"
-              placeholder="Search employees..."
+              placeholder="Rechercher des employés..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-9 pr-4 py-2 text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500"
-              aria-label="Search employees"
+              aria-label="Rechercher des employés"
             />
           </div>
           <select
             value={deptFilter}
             onChange={(e) => setDeptFilter(e.target.value)}
             className="text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300"
-            aria-label="Filter by department"
+            aria-label="Filtrer par département"
           >
             {departments.map((d) => <option key={d}>{d}</option>)}
           </select>
@@ -147,12 +147,15 @@ export default function EmployeesPage() {
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             className="text-sm border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300"
-            aria-label="Filter by status"
+            aria-label="Filtrer par statut"
           >
-            {statuses.map((s) => <option key={s} value={s}>{s === "All" ? "All Status" : s.replace("_", " ")}</option>)}
+            {statuses.map((s) => {
+              const statusLabels: Record<string, string> = { active: "Actif", on_leave: "En congé", terminated: "Terminé" };
+              return <option key={s} value={s}>{s === "All" ? "Tous les statuts" : statusLabels[s] || s.replace("_", " ")}</option>;
+            })}
           </select>
           {isLoading && <Loader2 className="w-4 h-4 animate-spin text-zinc-400" />}
-          <span className="text-xs text-zinc-400">{filtered.length} results</span>
+          <span className="text-xs text-zinc-400">{filtered.length} résultats</span>
         </div>
 
         {/* Table */}
@@ -161,13 +164,13 @@ export default function EmployeesPage() {
             <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mx-auto mb-4">
               <Users className="w-6 h-6 text-zinc-400" />
             </div>
-            <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400 mb-1">No employees found</p>
-            <p className="text-xs text-zinc-500 dark:text-zinc-500">Try adjusting your search or filters</p>
+            <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400 mb-1">Aucun employé trouvé</p>
+            <p className="text-xs text-zinc-500 dark:text-zinc-500">Essayez d'ajuster votre recherche ou vos filtres</p>
             <button
               onClick={() => { setSearch(""); setDeptFilter("All"); setStatusFilter("All"); }}
               className="mt-3 text-xs font-medium text-violet-600 dark:text-violet-400 hover:underline"
             >
-              Clear all filters
+              Effacer tous les filtres
             </button>
           </div>
         ) : (
@@ -177,18 +180,18 @@ export default function EmployeesPage() {
                 <thead>
                   <tr className="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
                     {[
-                      { key: "name" as const, label: "Name" },
-                      { key: "department" as const, label: "Department" },
-                      { key: "position" as const, label: "Position" },
-                      { key: "status" as const, label: "Status" },
-                      { key: "hireDate" as const, label: "Hire Date" },
-                      { key: "attritionRisk.score" as const, label: "Risk" },
+                      { key: "name" as const, label: "Nom" },
+                      { key: "department" as const, label: "Département" },
+                      { key: "position" as const, label: "Poste" },
+                      { key: "status" as const, label: "Statut" },
+                      { key: "hireDate" as const, label: "Date d'embauche" },
+                      { key: "attritionRisk.score" as const, label: "Risque" },
                     ].map(({ key, label }) => (
                       <th
                         key={key}
                         onClick={() => toggleSort(key)}
                         className="text-left py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider cursor-pointer hover:text-zinc-700 dark:hover:text-zinc-300 select-none"
-                        aria-label={`Sort by ${label}`}
+                        aria-label={`Trier par ${label}`}
                       >
                         <span className="inline-flex items-center gap-1">
                           {label}
@@ -226,7 +229,7 @@ export default function EmployeesPage() {
                           emp.status === "on_leave" ? "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400" :
                           "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
                         )}>
-                          {emp.status === "on_leave" ? "On Leave" : emp.status}
+                          {emp.status === "on_leave" ? "En congé" : emp.status === "active" ? "Actif" : emp.status === "terminated" ? "Terminé" : emp.status}
                         </span>
                       </td>
                       <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400 text-sm">{emp.hireDate}</td>
@@ -245,7 +248,7 @@ export default function EmployeesPage() {
                         )}
                       </td>
                       <td className="py-3 px-4">
-                        <Link href={`/employees/${emp.id}`} className="text-zinc-300 hover:text-violet-500 transition-colors" aria-label={`View ${emp.name}`}>
+                        <Link href={`/employees/${emp.id}`} className="text-zinc-300 hover:text-violet-500 transition-colors" aria-label={`Voir ${emp.name}`}>
                           <ExternalLink className="w-3.5 h-3.5" />
                         </Link>
                       </td>

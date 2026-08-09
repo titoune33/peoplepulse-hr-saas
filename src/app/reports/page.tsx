@@ -130,7 +130,7 @@ export default function ReportsPage() {
                       ? "bg-zinc-100 text-zinc-400 cursor-wait dark:bg-zinc-800"
                       : "bg-violet-600 hover:bg-violet-700 text-white"
                   )}
-                  aria-label={`Generate ${r.label}`}
+                  aria-label={`Générer ${r.label}`}
                 >
                   {generating === r.type ? (
                     <>
@@ -165,9 +165,9 @@ export default function ReportsPage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
-                    <th className="text-left py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">Report</th>
+                    <th className="text-left py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">Rapport</th>
                     <th className="text-left py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">Date</th>
-                    <th className="text-left py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">Status</th>
+                    <th className="text-left py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">Statut</th>
                     <th className="text-right py-3 px-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
@@ -188,21 +188,21 @@ export default function ReportsPage() {
                             ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400"
                             : "bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400"
                         )}>
-                          {r.status === "ready" ? "Ready" : r.status === "generating" ? "Generating..." : r.status}
+                          {r.status === "ready" ? "Prêt" : r.status === "generating" ? "Génération..." : r.status}
                         </span>
                       </td>
                       <td className="py-3 px-4">
                         <div className="flex items-center justify-end gap-2">
                           <button
                             className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 hover:text-zinc-600 transition-colors"
-                            title="View report"
+                            title="Voir le rapport"
                             aria-label={`View ${r.name}`}
                           >
                             <Eye className="w-4 h-4" />
                           </button>
                           <button
                             className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 hover:text-zinc-600 transition-colors"
-                            title="Download report"
+                            title="Télécharger le rapport"
                             aria-label={`Download ${r.name}`}
                           >
                             <Download className="w-4 h-4" />

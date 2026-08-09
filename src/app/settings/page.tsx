@@ -16,19 +16,19 @@ export default function SettingsPage() {
       <HRISStatus />
       <div className="p-6 max-w-[900px] mx-auto space-y-8">
         <div>
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Settings</h1>
-          <p className="text-sm text-zinc-500 mt-0.5">Manage your HRIS connections and account preferences</p>
+          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Paramètres</h1>
+          <p className="text-sm text-zinc-500 mt-0.5">Gérez vos connexions RH et préférences de compte</p>
         </div>
 
         {/* HRIS Connections */}
         <section className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-6">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">HRIS Connections</h2>
-              <p className="text-xs text-zinc-500 mt-0.5">Connect your HR platforms to unify data</p>
+              <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">Connexions RH</h2>
+              <p className="text-xs text-zinc-500 mt-0.5">Connectez vos plateformes RH pour unifier les données</p>
             </div>
             <button className="text-xs font-medium bg-violet-600 hover:bg-violet-700 text-white px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5">
-              <Plus className="w-3.5 h-3.5" /> Add Connection
+              <Plus className="w-3.5 h-3.5" /> Ajouter une connexion
             </button>
           </div>
 
@@ -49,15 +49,15 @@ export default function SettingsPage() {
                         {c.status === "connected" ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
                         {c.status}
                       </span>
-                      <span className="text-xs text-zinc-400">· {c.employees} employees · synced {c.lastSync}</span>
+                      <span className="text-xs text-zinc-400">· {c.employees} employés · synchronisé {c.lastSync}</span>
                     </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 hover:text-zinc-600 transition-colors" aria-label={`Sync ${c.provider}`}>
+                  <button className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 hover:text-zinc-600 transition-colors" aria-label={`Synchroniser ${c.provider}`}>
                     <RefreshCw className="w-4 h-4" />
                   </button>
-                  <button className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/50 text-zinc-400 hover:text-red-600 transition-colors" aria-label={`Remove ${c.provider}`}>
+                  <button className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/50 text-zinc-400 hover:text-red-600 transition-colors" aria-label={`Supprimer ${c.provider}`}>
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
@@ -71,19 +71,19 @@ export default function SettingsPage() {
           <div className="flex items-center gap-3 mb-5">
             <Key className="w-5 h-5 text-zinc-500" />
             <div>
-              <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">API Keys</h2>
-              <p className="text-xs text-zinc-500 mt-0.5">Manage access tokens for external integrations</p>
+              <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">Clés API</h2>
+              <p className="text-xs text-zinc-500 mt-0.5">Gérez les tokens d'accès pour les intégrations externes</p>
             </div>
           </div>
           <div className="space-y-3">
             <div className="flex items-center justify-between p-4 rounded-lg border border-zinc-200 dark:border-zinc-800">
               <div>
-                <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Production API Key</p>
-                <p className="text-xs text-zinc-500 mt-0.5">Last used 2 hours ago</p>
+                <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Clé API de production</p>
+                <p className="text-xs text-zinc-500 mt-0.5">Dernière utilisation il y a 2 heures</p>
               </div>
               <div className="flex items-center gap-2">
                 <code className="text-xs bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded font-mono text-zinc-600">pp_live_••••••••••••••••</code>
-                <button className="text-xs text-violet-600 hover:text-violet-700 font-medium">Regenerate</button>
+                <button className="text-xs text-violet-600 hover:text-violet-700 font-medium">Régénérer</button>
               </div>
             </div>
           </div>
@@ -94,16 +94,16 @@ export default function SettingsPage() {
           <div className="flex items-center gap-3 mb-5">
             <Settings2 className="w-5 h-5 text-zinc-500" />
             <div>
-              <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">Preferences</h2>
-              <p className="text-xs text-zinc-500 mt-0.5">Notification and data sync preferences</p>
+              <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">Préférences</h2>
+              <p className="text-xs text-zinc-500 mt-0.5">Préférences de notification et synchronisation des données</p>
             </div>
           </div>
           <div className="space-y-4">
             {[
-              { icon: Bell, label: "Weekly digest email", desc: "Get a summary of key metrics every Monday", checked: true },
-              { icon: AlertCircle, label: "High-risk alerts", desc: "Instant notification when an employee risk score exceeds 70", checked: true },
-              { icon: RefreshCw, label: "Auto-sync HRIS data", desc: "Automatically pull data from connected HRIS every 6 hours", checked: true },
-              { icon: Globe, label: "GDPR compliance mode", desc: "Enable additional data anonymization for EU employees", checked: false },
+              { icon: Bell, label: "Email récapitulatif hebdomadaire", desc: "Recevez un résumé des indicateurs clés chaque lundi", checked: true },
+              { icon: AlertCircle, label: "Alertes risque élevé", desc: "Notification instantanée quand le score de risque d'un employé dépasse 70", checked: true },
+              { icon: RefreshCw, label: "Synchronisation auto. des données RH", desc: "Récupérer automatiquement les données des RH connectées toutes les 6 heures", checked: true },
+              { icon: Globe, label: "Mode conformité RGPD", desc: "Activer l'anonymisation supplémentaire des données pour les employés de l'UE", checked: false },
             ].map((pref) => (
               <div key={pref.label} className="flex items-center justify-between py-2">
                 <div className="flex items-start gap-3">
@@ -116,7 +116,7 @@ export default function SettingsPage() {
                 <button
                   role="switch"
                   aria-checked={pref.checked}
-                  aria-label={`Toggle ${pref.label}`}
+                  aria-label={`Activer/Désactiver ${pref.label}`}
                   onClick={() => {
                     // In a real app this would toggle the preference
                   }}
