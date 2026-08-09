@@ -10,6 +10,8 @@ interface ErrorBoundaryProps {
 function ErrorFallback(props: ErrorBoundaryProps, { error, retry }: ErrorInfo) {
   if (props.fallback) return props.fallback;
 
+  const message = error instanceof Error ? error.message : "Erreur inconnue lors du chargement de la page.";
+
   return (
     <div className="flex-1 flex items-center justify-center min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6">
       <div className="text-center max-w-md">
@@ -20,7 +22,7 @@ function ErrorFallback(props: ErrorBoundaryProps, { error, retry }: ErrorInfo) {
           Une erreur est survenue
         </h2>
         <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-6">
-          {error?.message || "Erreur inconnue lors du chargement de la page."}
+          {message}
         </p>
         <button
           onClick={() => retry()}
