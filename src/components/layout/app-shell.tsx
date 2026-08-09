@@ -7,7 +7,7 @@ import { MobileNav } from "./mobile-nav";
 import { AuthLoading } from "./auth-loading";
 import { TrendingUp } from "lucide-react";
 
-const publicPaths = ["/login", "/register", "/pricing"];
+const publicPaths = ["/", "/login", "/register", "/pricing"];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const { isLoading } = useAuth();
